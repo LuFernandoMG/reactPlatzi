@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles/BadgeNew.css';
-import Navbar from '../components/Navbar';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
 import heroImage from '../images/badge-header.svg';
@@ -26,7 +25,6 @@ class BadgeNew extends React.Component {
     render() {
         return (
             <div>
-                <Navbar />
                 <div className='BadgeNew__hero'>
                     <img src={heroImage} alt="logo" className="img-fluid" />
                 </div>
@@ -34,7 +32,7 @@ class BadgeNew extends React.Component {
                     <div className="row">
                         <div className="col">
                             <Badge firstName={this.state.form.firstName} email={this.state.form.email} lastName={this.state.form.lastName} jobTitle={this.state.form.jobTitle} urlImage='https://www.gravatar.com/avatar?d=identicon' twitter={this.state.form.twitter} />
-                        </div>s
+                        </div>
                         <div className="col">
                             <BadgeForm onChange={this.handleChange} formValues={this.state.form} />
                         </div>
