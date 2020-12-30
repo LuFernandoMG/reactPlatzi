@@ -1,0 +1,33 @@
+.NotFound { 
+    background-color: #1C3643;
+    position: relative;
+    height: calc(100vh - 3.75rem);
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.NotFound .container .row .col {
+    height: calc(100vh - 3.75rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.NotFound__logo {
+    width: auto;
+    height: 300px;
+    margin: 20px;
+}
+
+.NotFound__title {
+    color: #98CA3F;
+    margin: 20px;
+}
+
+.NotFound__text {
+    margin: 20px;
+    color: white;
+}
+

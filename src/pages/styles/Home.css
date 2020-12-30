@@ -1,0 +1,58 @@
+.Home {
+    background-color: #1C3643;
+    position: relative;
+    height: calc(100vh - 3.75rem);
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.Home__imgBackground { 
+    position: absolute;
+    top: 0;
+    width: 61vw;
+    height: 100%;
+}
+
+.Home__imgBackground.left {
+    left: 0;
+    height: 100%;
+}
+
+.Home__imgBackground.right {
+    right: 0;
+    height: 100%;
+}
+
+.col-12, .col-md-6 {
+    height: calc(100vh - 3.75rem);
+    display: flex;
+    align-items: center;
+}
+
+.Home__info {
+    flex-direction: column;
+    background-color: #2222223a;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 2px 2px 8px #504f4f80;
+    margin: 20px;
+    color: white;
+}
+
+.Home__Link {
+    margin: 20px;
+}
+
+.Home__title {
+    color: #98CA3F;
+    margin: 20px;
+}
+
+.Home__text {
+    margin: 20px;
+}
+
+.Home__logo {
+    width: 100%;
+    height: auto;
+}
