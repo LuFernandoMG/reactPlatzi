@@ -19,12 +19,11 @@
 }
 
 .Home__imgBackground.right {
-    right: 0;
+    right: -23%;
     height: 100%;
 }
 
 .col-12, .col-md-6 {
-    height: calc(100vh - 3.75rem);
     display: flex;
     align-items: center;
 }

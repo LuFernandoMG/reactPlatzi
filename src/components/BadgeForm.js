@@ -1,47 +1,80 @@
 import React from 'react';
 
 class BadgeForm extends React.Component {
+  handleClick = e => {
+    console.log('Button was clicked');
+  };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form was submitted');
-        console.log(this.state);
-    }
+  render() {
+    return (
+      <>
+        <form onSubmit={this.props.onSubmit}>
+          <div className="form-group">
+            <label>First Name</label>
+            <input
+              onChange={this.props.onChange}
+              className="form-control"
+              type="text"
+              name="firstName"
+              value={this.props.formValues.firstName}
+            />
+          </div>
 
-    handleClick = (e) => {
-        console.log('There was a click on the button')
-    }
-    
-    render() {
-        return(
-            <div>
-                <h1>New Attendant</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="firstName">First Name</label>
-                        <input onChange={this.props.onChange} value={this.props.formValues.firstName} className='form-control' id='firstName' name='firstName' type="text"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input onChange={this.props.onChange} value={this.props.formValues.lastName} className='form-control' id='lastName' name='lastName' type="text"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input onChange={this.props.onChange} value={this.props.formValues.email} className='form-control' id='email' name='email' type="email"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="jobTitle">Job Title</label>
-                        <input onChange={this.props.onChange} value={this.props.formValues.jobTitle} className='form-control' id='jobTitle' name='jobTitle' type="text"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="twitter">Twitter</label>
-                        <input onChange={this.props.onChange} value={this.props.formValues.twitter} className='form-control' id='twitter' name='twitter' type="text"/>
-                    </div>
-                    <button type='submit' onClick={this.handleClick} className="btn btn-primary">Save</button>
-                    </form>
-            </div>
-        )
-    }
+          <div className="form-group">
+            <label>Last Name</label>
+            <input
+              onChange={this.props.onChange}
+              className="form-control"
+              type="text"
+              name="lastName"
+              value={this.props.formValues.lastName}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              onChange={this.props.onChange}
+              className="form-control"
+              type="email"
+              name="email"
+              value={this.props.formValues.email}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Job Title</label>
+            <input
+              onChange={this.props.onChange}
+              className="form-control"
+              type="text"
+              name="jobTitle"
+              value={this.props.formValues.jobTitle}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Twitter</label>
+            <input
+              onChange={this.props.onChange}
+              className="form-control"
+              type="text"
+              name="twitter"
+              value={this.props.formValues.twitter}
+            />
+          </div>
+
+          <button onClick={this.handleClick} className="btn btn-primary">
+            Save
+          </button>
+
+          {this.props.error && (
+            <p className="text-danger">{this.props.error.message}</p>
+          )}
+        </form>
+      </>
+    );
+  }
 }
 
 export default BadgeForm;
