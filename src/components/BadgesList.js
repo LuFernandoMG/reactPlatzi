@@ -3,22 +3,68 @@ import './styles/BadgesList.css';
 import { Link } from 'react-router-dom';
 import Gravatar from './Gravatar';
 
-class BadgesList extends React.Component {
+function useSearchBadges(badges) {
+    
+    const [ query, setQuery ] = React.useState('');
+    const [ filteredBadges, setFilteredBadges ] = React.useState(badges)
+    
+    React.useMemo(() => { 
+        const result = badges.filter(badge => {
+        return `${badge.firstName} ${badge.lastName}`
+            .toLowerCase()
+            .includes(query.toLowerCase())
+        });
 
-    render() {
+        setFilteredBadges(result)
+    }, [ badges, query ]);
 
-        if (this.props.badges.length === 0) {
-            return (
-                <div>
-                    <h3>No encontramos ningún badge</h3>
-                    <p>¿Por qué no pruebas a registrar una tú?</p>
-                    <Link to='/badges/new' className='btn btn-primary'>Registrar</Link>
-                </div>
-            )
-        }
+    return { query, setQuery, filteredBadges }
+}
+
+function BadgesList(props) {
+    const badges = props.badges;
+    const { setQuery, query, filteredBadges } = useSearchBadges(badges);
+    if (filteredBadges.length === 0) {
         return (
-            <ul className="list-unstyled BadgesList">
-                {this.props.badges.map((badge) => {
+            <div>
+            <div className="form-group">
+                <label htmlFor="Search">Filter Badges</label>
+                <input
+                    value={query}
+                    onChange={(e) => {
+                        setQuery(e.target.value);
+                    }}
+                    placeholder='Search Badge'
+                    type="text"
+                    name="Search"
+                    id="Search"
+                    className="form-control"
+                />
+            </div>
+                <h3>No encontramos ningún badge</h3>
+                <p>¿Por qué no pruebas a registrar una tú?</p>
+                <Link to='/badges/new' className='btn btn-primary'>Registrar</Link>
+            </div>
+        )
+    }
+    return (
+        <div className="BadgesList">
+            <div className="form-group">
+                <label htmlFor="Search">Filter Badges</label>
+                <input
+                    value={query}
+                    onChange={(e) => {
+                        setQuery(e.target.value);
+                    }}
+                    placeholder='Search Badge'
+                    type="text"
+                    name="Search"
+                    id="Search"
+                    className="form-control"
+                />
+            </div>
+            <ul className="list-unstyled">
+                {filteredBadges.map((badge) => {
                     return (
                         <li key={badge.id} className='BadgesList__element'>
                             <div className="row">
@@ -40,8 +86,8 @@ class BadgesList extends React.Component {
                     )
                 })}
             </ul>
-        )
-    }
+        </div>
+    )
 }
 
 export default BadgesList;

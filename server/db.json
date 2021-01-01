@@ -415,13 +415,12 @@
       "avatarUrl": "https://www.gravatar.com/avatar/4f164ea9a61e8d28e6b83a356d3ff5ae?d=identicon"
     },
     {
+      "id": "Gz3JXGZ",
       "firstName": "Luis Fernando",
-      "LastName": "",
+      "lastName": "Méndez González",
       "email": "luisfernando.mendez5@gmail.com",
       "jobTitle": "UX Engineer",
-      "twitter": "mgluisfernando",
-      "lastName": "Méndez González",
-      "id": "Gz3JXGZ"
+      "twitter": "mgluisfernando"
     }
   ]
 }
